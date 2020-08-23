@@ -16,7 +16,9 @@
   "dependencies": {
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "element-ui": "^2.13.1"
+    "element-ui": "^2.13.1",
+    "stylus-loader": "^3.0.1",
+    "stylus": "0.52.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

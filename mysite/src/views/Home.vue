@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       portrait: require("@/assets/image/portrait.png"),
-      weChat: require("@/assets/image/wechat.png"),
+      weChat: require("@/assets/image/weChat.png"),
       tikTok: require("@/assets/image/tikTok.png")
     };
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="topNaviBody">
-    <div v-for="item in menu">
+    <div v-for="item in menu" :key="item">
       <a href="" class="menuLink">{{ item }}</a>
     </div>
   </div>

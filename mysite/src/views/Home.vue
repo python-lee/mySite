@@ -54,6 +54,7 @@ export default {
   background-color: #80808017
   border-top: 5px solid
   .myName {
+    height: 30%
     margin-top: 20px
     box-sizing: border-box
     font-size: 25px
@@ -66,6 +67,7 @@ export default {
     }
   }
   .topNavi {
+    height: 15%
     padding: 0 30%
   }
   .homeBox {
@@ -95,8 +97,8 @@ export default {
 }
 .qrCode {
   position: fixed
-  bottom: 10px
-  right: 10px
+  bottom: 20px
+  right: 20px
   height: 100px
   width: 100px
   >div>img {

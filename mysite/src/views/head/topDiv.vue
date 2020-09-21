@@ -11,7 +11,17 @@
             </div>
         </div>
         <div class="menuBox">
-
+            <ul class="menuTab">
+                <li v-for="(item,index) in menuList" :key="index">{{item}}</li>
+            </ul>
+            <div class="menuSearch">
+                <div class="menuSearchInput">
+                    <el-input v-model="input" placeholder="请输入内容"></el-input>
+                </div>
+                <div class="menuSearchButton">
+                    <el-button disabled>搜索</el-button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -20,7 +30,8 @@
 export default {
     data () {
         return {
-            topDivImg: require('@/assets/image/topDiv1.png')
+            topDivImg: require('@/assets/image/topDiv1.png'),
+            menuList: ['网站首页', '前端技术', '好文推荐', '前端在线资源']
         }
     }
 }
@@ -50,11 +61,49 @@ export default {
     } */
 }
 .menuBox {
+    position: relative;
     background-color: #D8E5F7;
     border-top: 3px solid #8BA7E3;
     border-bottom: 2px solid #B4C9F5;
     overflow: hidden;
     background-image: linear-gradient(to bottom, #D8E5F7, #BCD3F5);
     height: 6vh
+    .menuTab {
+        display: block;
+        list-style-type: none;
+        margin-left: 100px;
+        > li {
+            float: left;
+            font-size: 14px;
+            padding: 0 16px;
+        }
+    }
+    .menuSearch {
+        position: absolute;
+        right: 5px;
+        top: 10%;
+        >div {
+            display: inline-block;
+        }
+    }
+}
+.menuSearchInput {
+    .el-input {
+        .el-input__inner {
+            height: 35px;
+            border-radius:15px;
+        }
+    }
+}
+</style>
+<style type="text/css">
+.menuSearchInput .el-input .el-input__inner {
+    height: 35px;
+    border-radius: 0px;
+}
+.menuSearchButton .el-button {
+    height: 35px;
+    width: 50px;
+    border-radius: 0px
 }
 </style>

@@ -11,7 +11,9 @@
         </div>
         <div class="menuBox">
             <ul class="menuTab">
-                <li v-for="(item,index) in menuList" :key="index">{{item}}</li>
+                <li v-for="(item,index) in menuList" :key="index">
+                    <a href="#" class="menuLink">{{item}}</a>
+                </li>
             </ul>
             <div class="menuSearch">
                 <div class="menuSearchInput">
@@ -30,7 +32,7 @@ export default {
     data () {
         return {
             topDivImg: require('@/assets/image/topDiv1.png'),
-            menuList: ['网站首页', '前端技术', '好文推荐', '前端在线资源']
+            menuList: ['网站首页', '前端技术', '好文推荐', '前端在线资源', '后台管理']
         }
     }
 }
@@ -71,6 +73,10 @@ export default {
         display: block;
         list-style-type: none;
         margin-left: 100px;
+        .menuLink {
+            text-decoration: none;
+            color: black;
+        }
         > li {
             float: left;
             font-size: 14px;

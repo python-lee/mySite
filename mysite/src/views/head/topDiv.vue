@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="headBox">
-            <!-- <img :src='topDivImg' > -->
             <div class="leftHead">
 
             </div>
@@ -19,7 +18,7 @@
                     <el-input v-model="input" placeholder="请输入内容"></el-input>
                 </div>
                 <div class="menuSearchButton">
-                    <el-button disabled>搜索</el-button>
+                    <el-button size="small">搜索</el-button>
                 </div>
             </div>
         </div>
@@ -39,15 +38,19 @@ export default {
 
 <style lang="stylus" scoped>
 .headBox {
-    height: 8vh
+    position: relative;
+    height: 8vh;
     .leftHead {
 
     }
     .rightHead {
-        float: right
-        padding-right: 10px
+        position: absolute;
+        right: 30px;
         vertical-align: middle
         height: 100%
+        p:first-child {
+            margin-right:10px;
+        }
         >p {
             line-height: 8vh
             margin: 0px
@@ -55,10 +58,6 @@ export default {
             font-size: 12px
         }
     }
-    /* >img {
-        width: 100%
-        height: 100%
-    } */
 }
 .menuBox {
     position: relative;
@@ -79,9 +78,10 @@ export default {
         }
     }
     .menuSearch {
+        display: flex;
         position: absolute;
-        right: 5px;
-        top: 10%;
+        right: 50px;
+        top: 15%;
         >div {
             display: inline-block;
         }
@@ -99,11 +99,16 @@ export default {
 <style type="text/css">
 .menuSearchInput .el-input .el-input__inner {
     height: 35px;
-    border-radius: 0px;
+    border: 1px solid #86A0D6;
+    border-radius: 2px;
 }
 .menuSearchButton .el-button {
     height: 35px;
-    width: 50px;
-    border-radius: 0px
+    /* width: 50px; */
+    border: 1px solid #86A0D6;
+    background: #f8f8f8;
+    border-radius: 2px;
+    color: #555;
+    font-size: 12px;
 }
 </style>

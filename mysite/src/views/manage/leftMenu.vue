@@ -1,7 +1,8 @@
 /* 侧边栏导航 */
 <template>
     <div>
-        <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+        <el-tree :data="data"></el-tree>
+        <!-- <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree> -->
     </div>
 </template>
 

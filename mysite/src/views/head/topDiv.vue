@@ -3,14 +3,14 @@
     <div class="headBox">
       <div class="leftHead">HC.Lee</div>
       <div class="rightHead">
-        <p>注册</p>
-        <p>登录</p>
+        <p><a  class="menuLink" >注册</a></p>
+        <p><a  class="menuLink" >登录</a></p>
       </div>
     </div>
     <div class="menuBox">
         <ul class="menuTab">
-            <li v-for="(item,index) in menuList" :key="index">
-                <a href="#" class="menuLink">{{item}}</a>
+            <li v-for="(item,index) in menuList" :key="index" :class="isActive(item.path)">
+                <a class="menuLink" @click.stop="jumpPage(item.path)">{{item.name}}</a>
             </li>
         </ul>
         <div class="menuSearch">
@@ -27,16 +27,60 @@
 
 <script>
 export default {
+    computed: {
+        isActive (name) {
+            return (name) => {
+                return this.$store.state.currentActiveMenu === name ? 'active' : ''
+            }
+        }
+    },
     data () {
         return {
+            input: '',
             topDivImg: require('@/assets/image/topDiv1.png'),
-            menuList: ['网站首页', '前端技术', '好文推荐', '前端在线资源', '后台管理']
+            menuList: [
+                {
+                    name: '网站首页',
+                    path: 'home'
+                },
+                {
+                    name: '前端技术',
+                    path: 'frontEnd'
+                },
+                {
+                    name: '好文推荐',
+                    path: 'goodArticle'
+                },
+                {
+                    name: '前端在线资源',
+                    path: 'onlineApi'
+                },
+                {
+                    name: '后台管理',
+                    path: 'manage'
+                }
+            ]
+        }
+    },
+    methods: {
+        /* 
+         *跳转到某个页面
+         * @path {String} 另一个页面的路径
+         */
+        jumpPage (toPath) {
+            this.$router.push({name: toPath})
         }
     }
 }
 </script>
 
 <style lang="stylus" scoped>
+
+.active {
+    background: white;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.15);
+    background: linear-gradient(to bottom, #e0e0e0, #fff 6px);
+}
 .headBox {
     display: flex;
     align-items: center;
@@ -46,6 +90,7 @@ export default {
     height: 67px;
     .leftHead {
         display: flex;
+        cursor: default;
         align-items: center;
         font-family: isabel;
         font-size: 40px;
@@ -77,15 +122,14 @@ export default {
     .menuTab {
         display: block;
         list-style-type: none;
-        margin-left: 100px;
-        .menuLink {
-            text-decoration: none;
-            color: black;
-        }
+        margin: 0px 0px 0px 100px;
         > li {
             float: left;
             font-size: 14px;
             padding: 0 16px;
+            height: 48px;
+            line-height: 48px;
+            margin-right: 5px;
         }
     }
     .menuSearch {
@@ -105,6 +149,11 @@ export default {
             border-radius:15px;
         }
     }
+}
+.menuLink {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
 }
 </style>
 <style type="text/css">

@@ -1,30 +1,28 @@
 <template>
-    <div>
-        <div class="headBox">
-            <div class="leftHead">
-
+  <div>
+    <div class="headBox">
+      <div class="leftHead">HC.Lee</div>
+      <div class="rightHead">
+        <p>注册</p>
+        <p>登录</p>
+      </div>
+    </div>
+    <div class="menuBox">
+        <ul class="menuTab">
+            <li v-for="(item,index) in menuList" :key="index">
+                <a href="#" class="menuLink">{{item}}</a>
+            </li>
+        </ul>
+        <div class="menuSearch">
+            <div class="menuSearchInput">
+                <el-input v-model="input" placeholder="请输入内容"></el-input>
             </div>
-            <div class="rightHead">
-                <p>注册</p>
-                <p>登录</p>
-            </div>
-        </div>
-        <div class="menuBox">
-            <ul class="menuTab">
-                <li v-for="(item,index) in menuList" :key="index">
-                    <a href="#" class="menuLink">{{item}}</a>
-                </li>
-            </ul>
-            <div class="menuSearch">
-                <div class="menuSearchInput">
-                    <el-input v-model="input" placeholder="请输入内容"></el-input>
-                </div>
-                <div class="menuSearchButton">
-                    <el-button size="small">搜索</el-button>
-                </div>
+            <div class="menuSearchButton">
+                <el-button size="small">搜索</el-button>
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -40,16 +38,23 @@ export default {
 
 <style lang="stylus" scoped>
 .headBox {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px 15px;
     position: relative;
-    height: 8vh;
+    height: 67px;
     .leftHead {
-
+        display: flex;
+        align-items: center;
+        font-family: isabel;
+        font-size: 40px;
+        padding-left: 40px
     }
     .rightHead {
         position: absolute;
-        right: 30px;
+        right: 15px;
         vertical-align: middle
-        height: 100%
         p:first-child {
             margin-right:10px;
         }
@@ -68,7 +73,7 @@ export default {
     border-bottom: 2px solid #B4C9F5;
     overflow: hidden;
     background-image: linear-gradient(to bottom, #D8E5F7, #BCD3F5);
-    height: 6vh
+    height: 48px;
     .menuTab {
         display: block;
         list-style-type: none;
@@ -104,17 +109,17 @@ export default {
 </style>
 <style type="text/css">
 .menuSearchInput .el-input .el-input__inner {
-    height: 35px;
-    border: 1px solid #86A0D6;
-    border-radius: 2px;
+  height: 35px;
+  border: 1px solid #86a0d6;
+  border-radius: 2px;
 }
 .menuSearchButton .el-button {
-    height: 35px;
-    /* width: 50px; */
-    border: 1px solid #86A0D6;
-    background: #f8f8f8;
-    border-radius: 2px;
-    color: #555;
-    font-size: 12px;
+  height: 35px;
+  /* width: 50px; */
+  border: 1px solid #86a0d6;
+  background: #f8f8f8;
+  border-radius: 2px;
+  color: #555;
+  font-size: 12px;
 }
 </style>

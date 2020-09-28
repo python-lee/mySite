@@ -1,7 +1,10 @@
 <template>
-  <div>
+  <div class="manageBox">
     <div class="leftMenu">
       <sideBarMenu :menuList="leftList"></sideBarMenu>
+    </div>
+    <div class="rightBox">
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -22,10 +25,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.leftMenu {
-  height: calc(100vh - 120px);
-  width: 150px;
-  background-color: #e3eff5;
-  border-right: 1px solid;
+.manageBox {
+  display: flex;
+
+  .leftMenu {
+    height: calc(100vh - 120px);
+    width: 150px;
+    background-color: #e3eff5;
+    border-right: 1px solid;
+  }
 }
 </style>

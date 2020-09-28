@@ -1,7 +1,12 @@
 /* 侧边栏导航 */
 <template>
   <div>
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#e3eff5">
+    <el-menu
+      default-active="1-4-1"
+      class="el-menu-vertical-demo"
+      background-color="#e3eff5"
+      :router="true"
+    >
       <el-submenu v-for="(item, index) in menuList" :key="index" :index="index+''">
         <template slot="title">
           <i :class="item.icon"></i>

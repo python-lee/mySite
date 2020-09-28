@@ -13,8 +13,8 @@
     </div>
     <div class="menuBox">
       <ul class="menuTab">
-        <li v-for="(item,index) in menuList" :key="index" :class="isActive(item.path)">
-          <a class="menuLink" @click.stop="jumpPage(item.path)">{{item.name}}</a>
+        <li v-for="(item,index) in menuList" :key="index" :class="isActive(item.name)">
+          <a class="menuLink" @click.stop="jumpPage(item.path)">{{item.title}}</a>
         </li>
       </ul>
       <div class="menuSearch">
@@ -52,7 +52,7 @@ export default {
      * @path {String} 另一个页面的路径
      */
     jumpPage(toPath) {
-      this.$router.push({ name: toPath });
+      this.$router.push({ path: toPath });
     }
   }
 };

@@ -3,157 +3,152 @@
     <div class="headBox">
       <div class="leftHead">HC.Lee</div>
       <div class="rightHead">
-        <p><a  class="menuLink" >注册</a></p>
-        <p><a  class="menuLink" >登录</a></p>
+        <p>
+          <a class="menuLink">注册</a>
+        </p>
+        <p>
+          <a class="menuLink">登录</a>
+        </p>
       </div>
     </div>
     <div class="menuBox">
-        <ul class="menuTab">
-            <li v-for="(item,index) in menuList" :key="index" :class="isActive(item.path)">
-                <a class="menuLink" @click.stop="jumpPage(item.path)">{{item.name}}</a>
-            </li>
-        </ul>
-        <div class="menuSearch">
-            <div class="menuSearchInput">
-                <el-input v-model="input" placeholder="请输入内容"></el-input>
-            </div>
-            <div class="menuSearchButton">
-                <el-button size="small">搜索</el-button>
-            </div>
+      <ul class="menuTab">
+        <li v-for="(item,index) in menuList" :key="index" :class="isActive(item.path)">
+          <a class="menuLink" @click.stop="jumpPage(item.path)">{{item.name}}</a>
+        </li>
+      </ul>
+      <div class="menuSearch">
+        <div class="menuSearchInput">
+          <el-input v-model="input" placeholder="请输入内容"></el-input>
         </div>
+        <div class="menuSearchButton">
+          <el-button size="small">搜索</el-button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
+import { topMenu } from "@/config.js";
 export default {
-    computed: {
-        isActive (name) {
-            return (name) => {
-                return this.$store.state.currentActiveMenu === name ? 'active' : ''
-            }
-        }
-    },
-    data () {
-        return {
-            input: '',
-            topDivImg: require('@/assets/image/topDiv1.png'),
-            menuList: [
-                {
-                    name: '网站首页',
-                    path: 'home'
-                },
-                {
-                    name: '前端技术',
-                    path: 'frontEnd'
-                },
-                {
-                    name: '好文推荐',
-                    path: 'goodArticle'
-                },
-                {
-                    name: '前端在线资源',
-                    path: 'onlineApi'
-                },
-                {
-                    name: '后台管理',
-                    path: 'manage'
-                }
-            ]
-        }
-    },
-    methods: {
-        /* 
-         *跳转到某个页面
-         * @path {String} 另一个页面的路径
-         */
-        jumpPage (toPath) {
-            this.$router.push({name: toPath})
-        }
+  computed: {
+    isActive(name) {
+      return name => {
+        return this.$store.state.currentActiveMenu === name ? "active" : "";
+      };
     }
-}
+  },
+  data() {
+    return {
+      input: "",
+      topDivImg: require("@/assets/image/topDiv1.png"),
+      menuList: topMenu
+    };
+  },
+  methods: {
+    /*
+     *跳转到某个页面
+     * @path {String} 另一个页面的路径
+     */
+    jumpPage(toPath) {
+      this.$router.push({ name: toPath });
+    }
+  }
+};
 </script>
 
 <style lang="stylus" scoped>
-
 .active {
-    background: white;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.15);
-    background: linear-gradient(to bottom, #e0e0e0, #fff 6px);
+  background: white;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to bottom, #e0e0e0, #fff 6px);
 }
+
 .headBox {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  position: relative;
+  height: 67px;
+
+  .leftHead {
     display: flex;
+    cursor: default;
     align-items: center;
-    box-sizing: border-box;
-    padding: 10px 15px;
-    position: relative;
-    height: 67px;
-    .leftHead {
-        display: flex;
-        cursor: default;
-        align-items: center;
-        font-family: isabel;
-        font-size: 40px;
-        padding-left: 40px
+    font-family: isabel;
+    font-size: 40px;
+    padding-left: 40px;
+  }
+
+  .rightHead {
+    position: absolute;
+    right: 15px;
+    vertical-align: middle;
+
+    p:first-child {
+      margin-right: 10px;
     }
-    .rightHead {
-        position: absolute;
-        right: 15px;
-        vertical-align: middle
-        p:first-child {
-            margin-right:10px;
-        }
-        >p {
-            line-height: 8vh
-            margin: 0px
-            display: inline-block
-            font-size: 12px
-        }
+
+    >p {
+      line-height: 8vh;
+      margin: 0px;
+      display: inline-block;
+      font-size: 12px;
     }
+  }
 }
+
 .menuBox {
-    position: relative;
-    background-color: #D8E5F7;
-    border-top: 3px solid #8BA7E3;
-    border-bottom: 2px solid #B4C9F5;
-    overflow: hidden;
-    background-image: linear-gradient(to bottom, #D8E5F7, #BCD3F5);
-    height: 48px;
-    .menuTab {
-        display: block;
-        list-style-type: none;
-        margin: 0px 0px 0px 100px;
-        > li {
-            float: left;
-            font-size: 14px;
-            padding: 0 16px;
-            height: 48px;
-            line-height: 48px;
-            margin-right: 5px;
-        }
+  position: relative;
+  background-color: #D8E5F7;
+  border-top: 3px solid #8BA7E3;
+  border-bottom: 2px solid #B4C9F5;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, #D8E5F7, #BCD3F5);
+  height: 48px;
+
+  .menuTab {
+    display: block;
+    list-style-type: none;
+    margin: 0px 0px 0px 100px;
+
+    > li {
+      float: left;
+      font-size: 14px;
+      padding: 0 16px;
+      height: 48px;
+      line-height: 48px;
+      margin-right: 5px;
     }
-    .menuSearch {
-        display: flex;
-        position: absolute;
-        right: 50px;
-        top: 15%;
-        >div {
-            display: inline-block;
-        }
+  }
+
+  .menuSearch {
+    display: flex;
+    position: absolute;
+    right: 50px;
+    top: 15%;
+
+    >div {
+      display: inline-block;
     }
+  }
 }
+
 .menuSearchInput {
-    .el-input {
-        .el-input__inner {
-            height: 35px;
-            border-radius:15px;
-        }
+  .el-input {
+    .el-input__inner {
+      height: 35px;
+      border-radius: 15px;
     }
+  }
 }
+
 .menuLink {
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
 </style>
 <style type="text/css">

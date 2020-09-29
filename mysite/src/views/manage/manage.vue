@@ -30,9 +30,13 @@ export default {
 
   .leftMenu {
     height: calc(100vh - 120px);
+    min-width: 150px;
     width: 150px;
     background-color: #e3eff5;
     border-right: 1px solid;
+  }
+  .rightBox {
+      width: 100%
   }
 }
 </style>

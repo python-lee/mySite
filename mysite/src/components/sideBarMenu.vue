@@ -2,10 +2,11 @@
 <template>
   <div>
     <el-menu
-      default-active="1-4-1"
+      :default-active="activeSideBar"
       class="el-menu-vertical-demo"
       background-color="#e3eff5"
       :router="true"
+      @open="handleOpen"
     >
       <el-submenu v-for="(item, index) in menuList" :key="index" :index="index+''">
         <template slot="title">
@@ -34,8 +35,20 @@ export default {
       default: () => []
     }
   },
+  computed: {
+    activeSideBar () {
+      return this.$store.state.activeSideBar
+    }
+  },
   data() {
-    return {};
+    return {
+    };
+  },
+  methods: {
+    /* 点击菜单的触发事件 */
+    handleOpen (index) {
+      console.log(index)
+    }
   }
 };
 </script>

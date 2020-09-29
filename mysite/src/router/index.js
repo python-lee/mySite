@@ -13,23 +13,33 @@ const router = new Router({
     {
       path: "/",
       name: "home",
-      component: home
+      component: home,
+      meta: ['home']
     },
     {
       path: "/home",
       name: "home",
-      component: home
+      component: home,
+      meta: ['home']
     },
     {
       path: "/manage",
       name: "manage",
       component: manage,
+      meta: ['manage'],
       children: [
         {
           path: "goodArticleManage",
           name: "goodArticleManage",
           // component: resolve => (require(["@/views/manage/goodArticle/articleAdmin"], resolve))
-          component: goodArticleManage
+          component: goodArticleManage,
+          meta: ['manage']
+        },
+        {
+          path: "articlePublish",
+          name: "articlePublish",
+          component: resolve => (require(["@/views/manage/goodArticle/articlePublish"], resolve)),
+          meta: ['articlePublish']
         }
       ]
     }
@@ -39,7 +49,8 @@ const router = new Router({
 
 
 router.beforeEach((to, from, next) => {
-  store.commit('changeActiveMenu', to.matched[0].name)
+  store.commit('changeActiveMenu', to.meta[0])
+  store.commit('changeActiveSideBar', to.path)
   next()
 })
 

@@ -41,7 +41,7 @@ const manageSideBarMenu = [
                     },
                     {
                         name: "好文发布",
-                        index: "2-2"
+                        index: "/manage/articlePublish"
                     }
                 ]
             }

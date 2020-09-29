@@ -5,11 +5,15 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        currentActiveMenu: ''
+        currentActiveMenu: '',
+        activeSideBar: ''
     },
     mutations: {
         changeActiveMenu (state, menu) {
             state.currentActiveMenu = menu
+        },
+        changeActiveSideBar (state, sideBar) {
+            state.activeSideBar = sideBar
         }
     }
 })

@@ -56,5 +56,6 @@ export default {
 <style lang="stylus" scoped>
 .el-menu-vertical-demo .el-submenu .el-menu-item {
   min-width: 150px;
+  padding-left: 52px !important;
 }
 </style>

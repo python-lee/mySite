@@ -39,7 +39,7 @@ const router = new Router({
           path: "articlePublish",
           name: "articlePublish",
           component: resolve => (require(["@/views/manage/goodArticle/articlePublish"], resolve)),
-          meta: ['articlePublish']
+          meta: ['manage']
         }
       ]
     }

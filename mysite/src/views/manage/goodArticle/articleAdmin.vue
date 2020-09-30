@@ -53,7 +53,6 @@ export default {
 <style scoped>
 .articleAdminBox {
   box-sizing: border-box;
-  margin: 50px;
   border: 1px solid #ebebeb;
 }
 </style>

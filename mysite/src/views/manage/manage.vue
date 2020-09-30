@@ -36,7 +36,9 @@ export default {
     border-right: 1px solid;
   }
   .rightBox {
+      box-sizing: border-box
       width: 100%
+      padding: 20px 20px 10px 10px
   }
 }
 </style>

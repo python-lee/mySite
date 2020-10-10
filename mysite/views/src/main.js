@@ -5,9 +5,11 @@ import App from "./App";
 import router from "./router";
 import {store} from "./store";
 import ElementUI from "element-ui";
+import ajax from "./ajax/api";
 import "element-ui/lib/theme-chalk/index.css";
 
 Vue.use(ElementUI);
+Vue.use(ajax);
 
 Vue.config.productionTip = false;
 

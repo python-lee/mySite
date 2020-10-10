@@ -22,7 +22,7 @@
                 </div>
             </el-form-item>
             <el-form-item :label-width="labelWidth">
-                <el-button type="primary" @click="onSubmit">立即创建</el-button>
+                <el-button type="primary" @click="addGoodArticle">立即创建</el-button>
                 <el-button>取消</el-button>
             </el-form-item>
         </el-form>
@@ -44,6 +44,11 @@ export default {
     methods: {
         onSubmit () {
             console.log(this.form)
+        },
+
+        async addGoodArticle () {
+            let rep = await this.$ajax.addGoodArticle()
+            console.log(rep)
         }
     }
 }

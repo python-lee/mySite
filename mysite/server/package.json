@@ -5,6 +5,7 @@
     "dependencies": {
         "koa": "*",
         "koa-router": "*",
-        "koa-bodyparser": "*"
+        "koa-bodyparser": "*",
+        "mongoose": "*"
     }
 }
